@@ -166,9 +166,9 @@ public class Actions {
 		Scanner in2 = new Scanner(System.in);
 		String userInput;
 		int userId = user.getUsrId();
-		List<Account> accounts = as.getAccountsByUserID(userId);			// ONLY RETRIEVES ACTIVE ACCOUNTS
+		List<Account> accounts = as.getAccountsByUserID(userId);	 // ONLY RETRIEVES ACTIVE ACCOUNTS
 		// If user does not have any active  accounts
-		if (accounts == null) {
+		if (accounts == null || accounts.size() <= 0) {
 			System.out.println("You don't have any active bank accounts. Would you like to create one? [y/n]");
 			while(in2.hasNextLine()) {
 				userInput = in2.nextLine();
@@ -179,6 +179,7 @@ public class Actions {
 				else if ( (userInput.equalsIgnoreCase("y")) || (userInput.equalsIgnoreCase("yes")) ) {
 					Account acc = createAccount(user);
 					as.createAccount(acc);
+					//accounts.add(acc);//
 					System.out.println("Congratulations, you made an account!");
 					giveOptions(user);
 					break;
@@ -317,8 +318,9 @@ public class Actions {
 		@SuppressWarnings("resource")
 		Scanner in = new Scanner(System.in);
 		System.out.println("What would you like to name your account?");
-		String nickname = in.nextLine();		
-		return new Account(user.getUsrId(), accType, nickname, 0.00);	// new account balance set to 0
+		String nickname = in.nextLine();
+		User u = us.getUserByUsername(user.getUsername());
+		return new Account(u.getUsrId(), accType, nickname, 0.00);	// new account balance set to 0
 	}
 
 

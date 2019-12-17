@@ -46,10 +46,9 @@ public class TransactionDao {
 
 	public Transaction create(Transaction t) {
 		try(Connection conn = ConnectionFactory.getConnection()){
-			String sql = "INSERT INTO TRANSACTION(USER_ID, ACC_ID, ACC_NICKNAME, TRANS_TYPE, AMOUNT, NEWBAL, TRANSDATE) "
+			String sql = "INSERT INTO TRANSACTION(USR_ID, ACC_ID, ACC_NICKNAME, TRANS_TYPE, AMOUNT, NEWBAL, TRANSDATE) "
 					+ "VALUES(?, ?, ?, ?, ?, ?, ?)";
-			String[] keyNames = {"TRANS_ID"};
-			PreparedStatement ps = conn.prepareStatement(sql, keyNames);
+			PreparedStatement ps = conn.prepareStatement(sql);
 			ps.setInt(1, t.getUsrId());
 			ps.setInt(2, t.getAccId());
 			ps.setString(3, t.getAccNickname());
