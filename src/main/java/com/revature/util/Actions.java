@@ -5,6 +5,7 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Scanner;
 
+import com.revature.util.AccountTransactions;
 import com.revature.models.Account;
 import com.revature.models.Transaction;
 import com.revature.models.User;
@@ -155,7 +156,6 @@ public class Actions {
 		}
 		return user;
 	}
-
 
 	/**
 	 * Runs welcome screen once logged in

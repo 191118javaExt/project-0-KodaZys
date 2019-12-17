@@ -27,7 +27,6 @@ public class BankingApp {
 			if ( (userInput.equalsIgnoreCase("y")) || (userInput.equalsIgnoreCase("yes")) ) {
 				User user = Actions.login();
 				Actions.giveOptions(user);
-				
 			}
 
 			//CREATE USER
@@ -52,7 +51,6 @@ public class BankingApp {
 					}
 				}
 			}
-
 			else {
 				System.out.println("Please enter [y] or [n]");
 			}

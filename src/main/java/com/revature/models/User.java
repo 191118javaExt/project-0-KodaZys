@@ -1,6 +1,5 @@
 package com.revature.models;
 
-
 public class User {
 	
 	private int usrId;

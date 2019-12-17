@@ -40,7 +40,7 @@ public class AccountDao implements DAO<Account, Integer> {
 	public List<Account> findByUserID(int id){
 		List<Account> accounts = new ArrayList<Account>();
 		try(Connection conn = ConnectionFactory.getConnection()){
-			String sql = "SELECT * FROM ACCOUNT WHERE USER_ID = ? ORDER BY ACC_ID";
+			String sql = "SELECT * FROM ACCOUNT WHERE USR_ID = ? ORDER BY ACC_ID";
 			PreparedStatement ps = conn.prepareStatement(sql);
 			ps.setInt(1, id);
 			ResultSet rs = ps.executeQuery();
@@ -65,16 +65,14 @@ public class AccountDao implements DAO<Account, Integer> {
 
 	@Override
 	public Account findById(Integer id) {
-
 		return null;
 	}
 
 	@Override
 	public Account create(Account acc) {
 		try(Connection conn = ConnectionFactory.getConnection()){
-			String sql = "INSERT INTO ACCOUNT (USER_ID, ACC_TYPE, NICKNAME, BALANCE, INTEREST, ACTIVE) VALUES(?, ?, ?, ?, ?, ?)";
-			String[] keyNames = {"ACC_ID"};
-			PreparedStatement ps = conn.prepareStatement(sql, keyNames);
+			String sql = "INSERT INTO ACCOUNT (USR_ID, ACC_TYPE, NICKNAME, BALANCE, INTEREST, ACTIVE) VALUES(?, ?, ?, ?, ?, ?)";
+			PreparedStatement ps = conn.prepareStatement(sql);
 			ps.setInt(1, acc.getUsrId());
 			ps.setInt(2, acc.getAccType());
 			ps.setString(3, acc.getNickname());
@@ -89,7 +87,6 @@ public class AccountDao implements DAO<Account, Integer> {
 					acc.setAccId(pk.getInt(1));
 				}
 			}
-			
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}

@@ -11,7 +11,6 @@ import com.revature.models.Transaction;
 import com.revature.service.AccountService;
 import com.revature.service.TransactionService;
 
-
 /**
  * 
  * Utility class with methods to  withdraw, deposit, transfer, view balance, and delete account.
@@ -54,7 +53,6 @@ public class AccountTransactions {
 		return acc;
 	}
 
-	
 	/**
 	 * Deposit
 	 */
@@ -122,7 +120,6 @@ public class AccountTransactions {
 		}
 	}
 
-
 	/**
 	 * View balance of account
 	 */
@@ -136,8 +133,6 @@ public class AccountTransactions {
 		acc.setActive(0);	// 0 is inactive
 		return acc;
 	}
-	
-	
 
 	/**
 	 * Used to round to 2 decimal places
@@ -147,6 +142,4 @@ public class AccountTransactions {
 		bd = bd.setScale(2, RoundingMode.HALF_UP);
 		return bd.doubleValue();
 	}
-
-
 }

@@ -46,8 +46,7 @@ public class UserDao implements DAO<User, Integer>  {
 	public User create(User u) {
 		try(Connection conn = ConnectionFactory.getConnection()){
 			String sql = "INSERT INTO USR (USERNAME, PW, FIRSTNAME, LASTNAME) VALUES(?,?,?,?)";
-			String[] keyNames = {"USER_ID"};
-			PreparedStatement ps = conn.prepareStatement(sql, keyNames);
+			PreparedStatement ps = conn.prepareStatement(sql);
 			ps.setString(1, u.getUsername());
 			ps.setString(2, u.getPw());
 			ps.setString(3, u.getFirst());
