@@ -5,7 +5,6 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.sql.Types;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -19,11 +18,10 @@ public class TransactionDao {
 	public List<Transaction> findByUserID(int uid, int aid){
 		List<Transaction> transactions = new ArrayList<Transaction>();
 		try(Connection conn = ConnectionFactory.getConnection()){
-			String sql = "{ CALL GET_TRANS_FROM_USRID(?,?,?) }";
+			String sql = "{ CALL GET_TRANS_FROM_USRID(?,?) }";
 			CallableStatement cs = conn.prepareCall(sql);
-			cs.registerOutParameter(1, Types.REF_CURSOR);
-			cs.setInt(2, uid);
-			cs.setInt(3, aid);
+			cs.setInt(1, uid);
+			cs.setInt(2, aid);
 			cs.execute();
 			ResultSet rs = (ResultSet) cs.getObject(1);
 			while(rs.next()) {

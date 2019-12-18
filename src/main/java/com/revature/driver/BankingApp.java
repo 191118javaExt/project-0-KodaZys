@@ -2,12 +2,15 @@ package com.revature.driver;
 
 import java.util.Scanner;
 
+import org.apache.log4j.Logger;
+
 import com.revature.models.User;
 import com.revature.service.UserService;
 import com.revature.util.Actions;
 
 public class BankingApp {
 
+	static final Logger logger = Logger.getLogger(BankingApp.class);
 	static UserService us = new UserService();
 
 	public static void main(String[] args) {
@@ -19,7 +22,7 @@ public class BankingApp {
 		String userInput;
 
 		// Welcome message
-		System.out.println("Welcome to your online banking application!\n"
+		System.out.println("Welcome to your online banking application with SophBank!\n"
 				+ "Do you have an existing user account? [y/n]" );
 		while(in.hasNext()) {
 			userInput = in.nextLine();
@@ -47,7 +50,7 @@ public class BankingApp {
 						break;
 					}
 					else {
-						System.out.println("Please enter [y] or [n]");
+						logger.info("Please enter [y] or [n]");
 					}
 				}
 			}

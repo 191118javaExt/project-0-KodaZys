@@ -191,7 +191,7 @@ public class Actions {
 		}
 		// Else, if user as at least 1 account, give them general options
 		else {
-			System.out.println("\nSelect a transacion:"
+			System.out.println("\nSelect an transaction:"
 					+ "\n[1] Withdrawal"
 					+ "\n[2] Deposit"
 					+ "\n[3] Transfer"

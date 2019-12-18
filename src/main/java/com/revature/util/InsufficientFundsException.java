@@ -6,6 +6,8 @@ package com.revature.util;
  *
  */
 public class InsufficientFundsException extends Exception {
+	
+	
 
 	public InsufficientFundsException() {
 		super("You have insufficient funds for this transaction.");
