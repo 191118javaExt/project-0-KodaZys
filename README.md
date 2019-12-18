@@ -2,7 +2,7 @@
 project-0-KodaZys created by GitHub Classroom
 
 ## Banking Application
-This application an Online Banking Application in which users can create unique user accounts and open various types of financial accounts. Once logged in, users can withdraw, deposit and transfer money between accounts. Users also have the ability to view their current balance, view past transactions and delete accounts.
+This application simulates an Online Banking Application in which users can create unique user accounts and open various types of financial accounts. Once logged in, users can withdraw, deposit and transfer money between accounts. Users also have the ability to view their current balance, view past transactions and delete accounts.
 
 ### Features
 * Implements intuitive interface and user interaction through the console.
