@@ -23,7 +23,7 @@ public class BankingApp {
 
 		// Welcome message
 		System.out.println("Welcome to your online banking application with SophBank!\n"
-				+ "Do you have an existing user account? [y/n]" );
+				+ "\nDo you have an existing user account? [y/n]" );
 		while(in.hasNext()) {
 			userInput = in.nextLine();
 			// LOGIN
@@ -44,6 +44,7 @@ public class BankingApp {
 					else if ( (userInput.equalsIgnoreCase("y")) || (userInput.equalsIgnoreCase("yes")) ) {
 						User u = Actions.createUser();
 						us.createUser(u);
+						logger.info("Created user " + u.getFirst()+ " in Postgres DB");
 						System.out.println("Congratulations " + u.getFirst() + "! You created a new user account with username: "
 								+ u.getUsername());
 						Actions.giveOptions(u);

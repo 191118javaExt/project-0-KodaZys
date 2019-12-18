@@ -5,6 +5,8 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Scanner;
 
+import org.apache.log4j.Logger;
+
 import com.revature.util.AccountTransactions;
 import com.revature.models.Account;
 import com.revature.models.Transaction;
@@ -20,6 +22,8 @@ import com.revature.service.UserService;
  *
  */
 public class Actions {
+	
+	static final Logger logger = Logger.getLogger(Actions.class);
 
 	static UserService us = new UserService();
 	static AccountService as = new AccountService();
@@ -68,6 +72,7 @@ public class Actions {
 		while (in.hasNextLine()) {
 			username = in.nextLine();
 			username = username.toLowerCase();		//	Store all usernames in the db as lower case
+			
 			if (usernames.isEmpty()) {				// If there are no users in the database
 				break;
 			}
@@ -148,6 +153,7 @@ public class Actions {
 					}
 					else {
 						System.out.println("Hello " + user.getFirst() + "!");
+						logger.info("Success! " + user.getFirst() + " logged in."); 
 						break;
 					}
 				}			
@@ -179,8 +185,8 @@ public class Actions {
 				else if ( (userInput.equalsIgnoreCase("y")) || (userInput.equalsIgnoreCase("yes")) ) {
 					Account acc = createAccount(user);
 					as.createAccount(acc);
-					//accounts.add(acc);//
 					System.out.println("Congratulations, you made an account!");
+					logger.info("Success! User ID is:" + user.getUsrId() + "for newly created account");
 					giveOptions(user);
 					break;
 				}
@@ -215,6 +221,7 @@ public class Actions {
 						break;
 					}
 					updatedAcc = AccountTransactions.withdraw(acc);
+					logger.info("Success! " + user.getFirst() + " withdrew.");
 					if (updatedAcc == null) {
 						System.out.println("You do not have enough funds in your account for this transaction.");
 						giveOptions(user);
@@ -228,6 +235,7 @@ public class Actions {
 					acc = chooseAccount(accounts);
 					updatedAcc = AccountTransactions.deposit(acc);
 					as.updateAccount(updatedAcc);
+					logger.info("Success! " + user.getFirst() + " deposited.");
 					giveOptions(user);
 					break;
 				case 3:	// transfer
@@ -241,12 +249,14 @@ public class Actions {
 					System.out.println("Transfer from: ");
 					Account transferFrom = chooseAccount(accounts);
 					AccountTransactions.transfer(transferTo, transferFrom);
+					logger.info("Success! " + user.getFirst() + " transferred.");
 					giveOptions(user);
 					break;
 				case 4: // view balance
 					System.out.println("View balance of: ");
 					acc = chooseAccount(accounts);
 					AccountTransactions.viewBalance(acc);
+					logger.info("Success! " + user.getFirst() + " viewed balance.");
 					giveOptions(user);
 					break;
 				case 5: // view transactions
@@ -260,6 +270,7 @@ public class Actions {
 					Account newAcc = createAccount(user);
 					as.createAccount(newAcc);
 					System.out.println("Congratulations, you made an account!");
+					logger.info("Success! " + user.getFirst() + " made an account.");
 					giveOptions(user);
 					break;
 				case 7: //deactivate account
@@ -268,10 +279,12 @@ public class Actions {
 					Account deactivated = AccountTransactions.deActivateAccount(acc);
 					as.updateAccount(deactivated);
 					System.out.println("Permantly deactivated '" + deactivated.getNickname() + "' Account." );
+					logger.info("Success! " + user.getFirst() + " deactivated account.");
 					giveOptions(user);
 					break;
 				case 8: // exit program
 					System.out.println("Goodbye!");
+					logger.info("Success! " + user.getFirst() + " quit.");
 					System.exit(0);
 				default:
 					System.out.println("Not a valid option");
@@ -304,6 +317,7 @@ public class Actions {
 			default:
 				System.out.println("Not a valid option");
 				account = createAccount(user);
+				logger.info("Created account " + user.getFirst()+ " in Postgres DB");
 				break;
 			}
 		}catch(InputMismatchException e) {

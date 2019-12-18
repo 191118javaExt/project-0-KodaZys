@@ -1,0 +1,6 @@
+2019-12-18 10:57:14 INFO  BankingApp:47 - Created user Sophia in db
+2019-12-18 11:15:28 INFO  BankingApp:47 - Created user Ram in Postgres DB
+2019-12-18 11:17:12 INFO  Actions:156 - Success: Ramlogged in.
+2019-12-18 11:20:28 INFO  Actions:156 - Success! Ram logged in.
+2019-12-18 11:20:38 INFO  Actions:189 - Success! User ID is:7for newly created account
+2019-12-18 11:20:52 INFO  Actions:237 - Success! Ram deposited.
