@@ -4,3 +4,13 @@
 2019-12-18 11:20:28 INFO  Actions:156 - Success! Ram logged in.
 2019-12-18 11:20:38 INFO  Actions:189 - Success! User ID is:7for newly created account
 2019-12-18 11:20:52 INFO  Actions:237 - Success! Ram deposited.
+2019-12-18 11:52:33 INFO  BankingApp:47 - Created user Johnny in Postgres DB
+2019-12-18 11:52:59 INFO  Actions:189 - Success! User ID is:0for newly created account
+2019-12-18 11:54:02 INFO  Actions:156 - Success! Johnny logged in.
+2019-12-18 11:54:11 INFO  Actions:259 - Success! Johnny viewed balance.
+2019-12-18 11:54:24 INFO  Actions:238 - Success! Johnny deposited.
+2019-12-18 11:54:36 INFO  Actions:273 - Success! Johnny made an account.
+2019-12-18 11:55:16 INFO  Actions:252 - Success! Johnny transferred.
+2019-12-18 11:55:24 INFO  Actions:259 - Success! Johnny viewed balance.
+2019-12-18 11:55:32 INFO  Actions:282 - Success! Johnny deactivated account.
+2019-12-18 11:56:01 INFO  Actions:287 - Success! Johnny quit.
